@@ -21,9 +21,9 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
 
-        if(_previousScore != score)
+/*        if(_previousScore != score)
             UpdateScore();
-        _previousScore = score;
+        _previousScore = score;*/
     }
 
     public void ChangeSceneToGamePlay()

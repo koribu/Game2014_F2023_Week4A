@@ -17,6 +17,8 @@ public class PlayerBehavour : MonoBehaviour
     [SerializeField]
     bool _isUsingMobile = false;
 
+    GameManager _gameManager;
+
         // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,8 @@ public class PlayerBehavour : MonoBehaviour
 
         _isUsingMobile = Application.platform == RuntimePlatform.Android ||
                         Application.platform == RuntimePlatform.IPhonePlayer;
+
+        _gameManager = FindAnyObjectByType<GameManager>();
     }
 
     // Update is called once per frame
@@ -83,6 +87,9 @@ public class PlayerBehavour : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("I am colliding with Enemy");
+
+            _gameManager.ChangeScore(5);
+
         }
     }
 }
