@@ -77,4 +77,12 @@ public class PlayerBehavour : MonoBehaviour
             transform.position = new Vector3(_boundry.yPoint, transform.position.y, transform.position.z);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("I am colliding with Enemy");
+        }
+    }
 }
