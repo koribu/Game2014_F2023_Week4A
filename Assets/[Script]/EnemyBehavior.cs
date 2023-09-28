@@ -15,8 +15,9 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _speedVertical =  Random.Range(1, 4);
-        _speedHorizontal = Random.Range(3, 7);
+       
+
+        ResetEnemy();
     }
 
     // Update is called once per frame
@@ -29,9 +30,17 @@ public class EnemyBehavior : MonoBehaviour
 
         if(_verticalBoundry.yPoint > transform.position.y)
         {
-            transform.position = new Vector3(Random.Range(_horizontalBoundry.xPoint,_horizontalBoundry.yPoint), _verticalBoundry.xPoint, transform.position.z);
+            ResetEnemy();
 
 
         }
+    }
+
+    void ResetEnemy()
+    {
+        _speedVertical = Random.Range(1, 4);
+        _speedHorizontal = Random.Range(3, 7);
+
+        transform.position = new Vector3(Random.Range(_horizontalBoundry.xPoint, _horizontalBoundry.yPoint), _verticalBoundry.xPoint, transform.position.z);
     }
 }

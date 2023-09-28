@@ -11,20 +11,26 @@ public class GameManager : MonoBehaviour
     int _previousScore = 0;
     [SerializeField]
     int score = 0;
+
+    [SerializeField]
+    [Range(0, 5)]
+    int _enemyNumber;
+
+    GameObject _enemyPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _enemyPrefab = Resources.Load<GameObject>("Prefabs/Enemy");
+
+        for(int i = 0; i < _enemyNumber; i++)
+        {
+            GameObject enemy = Instantiate(_enemyPrefab);
+            
+        }
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
 
-/*        if(_previousScore != score)
-            UpdateScore();
-        _previousScore = score;*/
-    }
 
     public void ChangeSceneToGamePlay()
     {
